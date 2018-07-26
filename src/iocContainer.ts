@@ -7,6 +7,7 @@ export default class IocContainer {
     }
 
     register(name, definition);
+    register(name, definition, dependencies);
     register(name, definition, dependencies?) {
         this._services.set(name, { definition: definition, dependencies: dependencies });
     }

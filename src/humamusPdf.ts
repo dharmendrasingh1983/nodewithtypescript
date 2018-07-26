@@ -1,3 +1,4 @@
+import { IocInjcection } from "./iocInecton";
 
 
 
@@ -5,7 +6,7 @@ export class HummmsPdf {
     comdown = 0;
     mergComdown = 0;
     path = "./pdfFolder/";  
-    constructor() {
+    constructor(private abc:IocInjcection) {
        
 
     }
