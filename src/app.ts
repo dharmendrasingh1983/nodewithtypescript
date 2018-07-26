@@ -1,8 +1,7 @@
 import * as express from 'express'
 import { PdfCreater } from './pdfCreater';
-import { HummmsPdf } from "./humamusPdf";
 
-class App {
+export default class App {
   public express
   pdfCreator: any;
   constructor() {
@@ -22,9 +21,10 @@ class App {
     router.get('/pdf', (req, res, callback) => {
       // let pf = new PdfCreater();
       //pf.getPdf(res);     
-        let hummPdfCreater = new HummmsPdf();
-        hummPdfCreater.getHummusPdf(res);   
-    
+      let container = req.app.get('context');
+      let hummPdfCreator = container.get('HummmsPdf');
+      hummPdfCreator.getHummusPdf(res);
+
       /* res.setHeader('Content-disposition', 'attachment; filename=theDocument.pdf');
       res.setHeader('Content-type', 'text/plain');
       res.charset = 'UTF-8';
@@ -35,4 +35,4 @@ class App {
   }
 }
 
-export default new App().express
+//export default new App().express
